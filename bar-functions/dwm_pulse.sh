@@ -9,16 +9,16 @@
 dwm_pulse () {
     VOL=$(pamixer --get-volume)
     
-    printf "%s" "$SEP1"
+    printf "%s" "| "
     if [ "$IDENTIFIER" = "unicode" ]; then
         if [ "$VOL" = "muted" ] || [ "$VOL" -eq 0 ]; then
-            printf "🔇"
+            printf "婢"
         elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
-            printf "🔈 %s%%" "$VOL"
+            printf " %s%%" "$VOL"
         elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
-            printf "🔉 %s%%" "$VOL"
+            printf " %s%%" "$VOL"
         else
-            printf "🔊 %s%%" "$VOL"
+            printf " %s%%" "$VOL"
         fi
     else
         if [ "$VOL" = "muted" ] || [ "$VOL" -eq 0 ]; then
@@ -31,7 +31,7 @@ dwm_pulse () {
             printf "VOL %s%%" "$VOL"
         fi
     fi
-    printf "%s\n" "$SEP2"
+    printf "%s\n" " "
 }
 
 dwm_pulse
